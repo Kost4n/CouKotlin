@@ -1,19 +1,25 @@
 package com.kost4n.coukotlin.ui.home
 
+import android.icu.text.AlphabeticIndex
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.kost4n.coukotlin.database.AppDataBase
-import com.kost4n.coukotlin.database.Dependencies
+import androidx.lifecycle.viewModelScope
+import com.kost4n.coukotlin.database.*
+import com.kost4n.coukotlin.database.dao.RecordDao
+import com.kost4n.coukotlin.database.entity.RecordEntity
 import com.kost4n.coukotlin.database.repository.RecordRepository
+import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val repository: RecordDao) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+
+
+    fun save() {
+
     }
-    val text: LiveData<String> = _text
 
-    private var recordRepository: RecordRepository =
-        RecordRepository()
+    private fun addRecord(record: RecordEntity) = viewModelScope.launch {
+        repository.addRecord(record)
+    }
 }

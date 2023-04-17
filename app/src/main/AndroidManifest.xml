@@ -36,5 +36,8 @@
                 android:enabled="true"
                 android:exported="true" tools:ignore="MissingClass">
         </receiver>
+
     </application>
+
+
 </manifest>

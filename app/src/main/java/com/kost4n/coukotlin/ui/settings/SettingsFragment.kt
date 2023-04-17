@@ -37,6 +37,8 @@ class SettingsFragment : Fragment() {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+
         binding?.timeButton?.setOnClickListener {
             val time = Date()
             val materialTimePicker = MaterialTimePicker.Builder()
